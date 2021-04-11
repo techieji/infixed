@@ -1,0 +1,10 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "infixed"
+author = "Pradhyum R"
+author-email = "drpradhyum2016@outlook.com"
+classifiers = ["License :: OSI Approved :: MIT License"]
+
