@@ -16,7 +16,7 @@ lines contains the core functionality!). Here's an example:
 ```
 
 That example shows how to use the default infix function. This module contains many other infix functions
-which use different delimiters, such as and\_infix ("&doubleadd&") and mul\_infix ("*doubleadd*"). This
+which use different delimiters, such as and\_infix ("&doubleadd&") and mul\_infix ("\*doubleadd\*"). This
 also contains the function make\_infix, which allows you to define your own infix operators.
 
 To use make\_infix, you should first know the abbreviation for the operator; these can be found in the magic
