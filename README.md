@@ -16,14 +16,14 @@ lines contains the core functionality!). Here's an example:
 ```
 
 That example shows how to use the default infix function. This module contains many other infix functions
-which use different delimiters, such as and\_infix ("&doubleadd&") and mul\_infix ("\*doubleadd\*"). This
-also contains the function make\_infix, which allows you to define your own infix operators.
+which use different delimiters, such as `and_infix` (`&doubleadd&`) and `mul_infix` (`\*doubleadd\*`). This
+also contains the function `make_infix`, which allows you to define your own infix operators.
 
-To use make\_infix, you should first know the abbreviation for the operator; these can be found in the magic
+To use `make_infix`, you should first know the abbreviation for the operator; these can be found in the magic
 method used to implement that operator (e.g. "truediv" for division because division is implemented using
-"\_\_truediv\_\_").  Afterwords, you can create the constructer function by calling `make_infix("truediv")`.
+`__truediv__`).  Afterwords, you can create the constructer function by calling `make_infix("truediv")`.
 The returned result (it should be the class "TruedivInfix" or something along those lines) can be used to construct
-infix operators delimited by the operator of your chooseing (in this example, you can now write "/doubleadd/").
+infix operators delimited by the operator of your chooseing (in this example, you can now write `/doubleadd/`).
 
 ## How it works
 
@@ -32,7 +32,7 @@ take a look at the source code (infixed.py), you will see that first big line of
 stilled, for the monstrosity which I have created cannot be tamed.
 
 With that disclaimer out of the way, I'm going to try to explain that first line of code: the implementation of
-make\_infix.
+`make_infix`.
 
 Here's the important part of that line:
 
@@ -72,9 +72,9 @@ Note that I use f-string syntax to show how the method names and the class name 
 
 Okay, an in-depth explanation.
 
-First, a review of \_\_new\_\_. \_\_new\_\_ is called before \_\_init\_\_ with the exact same arguments. \_\_new\_\_
-is expected to return an instance of the class; this is what `object.__new__(cls)` does. However, if \_\_new\_\_ returns
-an instance of any other class, \_\_init\_\_ isn't called; the value of the expression is the value that \_\_new\_\_ returns.
+First, a review of `__new__`. `__new__` is called before `__init__` with the exact same arguments. `__new__`
+is expected to return an instance of the class; this is what `object.__new__(cls)` does. However, if `__new__` returns
+an instance of any other class, `__init__` isn't called; the value of the expression is the value that `__new__` returns.
 In my infix class, it only initializes the class when the number of arguments is less than one; that is, the class is only used
 when the result can't be computed. If it can be computed, it calls the function with the provided arguments then and there and returns
 the results.
