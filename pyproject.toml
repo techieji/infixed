@@ -7,4 +7,7 @@ module = "infixed"
 author = "Pradhyum R"
 author-email = "drpradhyum2016@outlook.com"
 classifiers = ["License :: OSI Approved :: MIT License"]
+home-page = "https://github.com/techieji/infixed"
+description-file = "README.md"
+requires-python = ">=3.8"
 
