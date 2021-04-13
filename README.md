@@ -4,6 +4,7 @@ This is a golfed implementation of custom infix operators (I think about 5 lines
 lines contains the core functionality!). Here's an example:
 
 ```python
+
 >>> from infixed import infix
 >>> @infix
 ... def doubleadd(x, y):
@@ -13,6 +14,7 @@ lines contains the core functionality!). Here's an example:
 8
 >>> 2 |doubleadd| 4
 8
+
 ```
 
 That example shows how to use the default infix function. This module contains many other infix functions
@@ -23,7 +25,40 @@ To use `make_infix`, you should first know the abbreviation for the operator; th
 method used to implement that operator (e.g. "truediv" for division because division is implemented using
 `__truediv__`).  Afterwords, you can create the constructer function by calling `make_infix("truediv")`.
 The returned result (it should be the class "TruedivInfix" or something along those lines) can be used to construct
-infix operators delimited by the operator of your chooseing (in this example, you can now write `/doubleadd/`).
+infix operators delimited by the operator of your chooseing (in this example, you can now write `/doubleadd/`). Here's
+that complete example:
+
+```python
+
+>>> from infixed import make_infix
+>>> @make_infix('truediv')
+... def doubleadd(x, y):
+...     return 2*x + y
+...
+>>> 2 /doubleadd/ 4
+8
+
+```
+
+Infixed already provides many common delimiters out of the box:
+
+```python
+
+>>> from infixed import add_infix, mul_infix, div_infix
+>>> doubleadd = lambda x, y: 2*x + y
+>>> add_delim = add_infix(doubleadd)
+>>> mul_delim = mul_infix(doubleadd)
+>>> div_delim = div_infix(doubleadd)
+>>> 2 +add_delim+ 4
+8
+>>> 2 *mul_delim* 4
+8
+>>> 2 /div_delim/ 4
+8
+
+```
+
+All of the functions above can be used as decorators as well (docstrings and other attributes won't fall through!)
 
 ## How it works
 
