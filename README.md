@@ -1,6 +1,6 @@
 # Infixed
 
-This is a golfed implementation of custom infix operators (I think about 5 lines of source code; on top of that, only one of those
+This is a golfed implementation of custom infix operators (I think about 2 lines of source code; on top of that, only one of those
 lines contains the core functionality!). Here's an example:
 
 ```python
